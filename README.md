@@ -15,13 +15,13 @@ This lab will require you to implement three C functions, `ipc_create()`, `elaps
 
 ## Files
 
-This lab must be forked from the repo at
+This lab should be templated from the repo at
 
 ```
 https://github.com/mrasamny/csci-320-lab2
 ```
 
-Click the <span style="background-color:#444444;color:white;">Fork</span> button to fork a copy of the repo to your GitHub account and **clone** your repo on **your VM**.  You should commit your code as you work on your program and push it systematically to your repo.  **Your finalized product should be on your GitHub repo**.  Submissions that have only one push will not be graded!
+Click the <span style="background-color:green;color:white;">Use this template</span> button to make a copy of the repo on your GitHub account and **clone** your repo on **your VM**.  You should commit your code as you work on your program and push it systematically to your repo.  **Your finalized product should be on your GitHub repo**.  
 
 
 Included in the repo are,
@@ -34,7 +34,7 @@ Included in the repo are,
 
 ## Time It!
 
-You will write a C program that will result in an executable called <span style="font-family:monosapce;font-weight:bold;color:blue;">time</span> that determines the amount of time necessary to run a command from the command line.  This program will be run as <span style="font-family:monosapce;font-weight:bold;color:blue;">./time &lt;command&gt;</span> and will report the amount of elapsed time to run the specified command. This will involve using fork() and exec() functions, as well as the gettimeofday() function to determine the elapsed time. It will also require the use of an IPC mechanism.  In this case, a shared memory object.
+You will write a C program that will result in an executable called `time` that determines the amount of time necessary to run a command from the command line.  This program will be run as `./time <command>` and will report the amount of elapsed time to run the specified command. This will involve using `fork()` and `exec()` functions, as well as the `gettimeofday()` function to determine the elapsed time. It will also require the use of an IPC mechanism.  In this case, a shared memory object.
 
 The general strategy is to fork a child process that will execute the specified command. However, before the child executes the command, it will record a timestamp of the current time (which we term "starting time"). The parent process will wait for the child process to terminate. Once the child terminates, the parent will record the current timestamp for the ending time. The difference between the starting and ending times represents the elapsed time to execute the command. 
 
@@ -72,16 +72,17 @@ You are required to complete the following:
 1. Implement the function in the **ipc.c** file.  Each function is provided with commented TODOs that help you implement the function.
 2. Implement the `elapsed_time`function in **time.c**.
 3. Implement the `main` function in **main.c** using the TODOs to guide you in completing it.
-2. Write a makefile that will compile and link your program into an executable called <span style="color:purple;font-family:monospace;font-style:italic;font-size:1.3em;">time</span>.
+2. Write a makefile that will compile and link your program into an executable called **time**.
 
 ## Program Specifications
 
 Your program must perform the following:
 
 1. Use a shared memory object to communicate the start time to the parent process.
-2. Use fork to start a child process that will use the `execvp()` system call to execute the command.
+2. Use fork to start a child process, which in turn will use the `execvp()` system call to execute the command.
 
 ## Submission
 
-Your are to submit your GitHub repo link on Blackboard.  Your repo should show no submissions after the submissions deadline.  Any submissions after the deadline will result in an immediate zero (0) on the assignment.  If your **program does not compile, you will receive a zero (0) on the assignment**.  A rubric is provided with the assignment on Blackboard.
+Your are to submit the **ipc.c**, **time.c**, **main.c** and **makefile** on CodeGrade.  The link to the submission portal is in the Programming Activities page on your class Blackboad under *Programming Lab 2*.
+
 
